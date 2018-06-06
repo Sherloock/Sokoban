@@ -1,0 +1,57 @@
+Authors of levels:
+
+Thinking Rabbit
+Joseph L. Traub
+Frantisek Pokorny
+Yoshio Murase
+TAKAKEN
+IQ Carrier
+Hiroki Kanou
+Konstant. Bozeberg
+Franklin Mentzer
+Jack Duthen
+Manuel Correa
+OKIYASU
+Koyama
+Hiramatsu
+Gerald Holler
+Howard Abed
+Alain Kersteller
+Yut
+Frederik Goethals
+Aymeric Dupeloux
+Kevin B. Reilly
+Jiri Petrak
+Mottled
+Vladimir Zahoransky
+Pavel Klavik
+Marek Letrab
+Zlosynus
+David W. Skinner
+Borella Alberto
+Marcus Palstra
+Zbigniev Kornas
+Alberto Garcia
+Adolf Doner
+Adrien Pralix
+Serg Belyaev
+Sven Egevad
+Francois Marques
+Roger Delaporte
+spiros mantzoukis
+Jurgen Rietz
+Ghislain Martin
+York Shen
+GRIGoRusha
+Zhenying
+Jordi Domenech
+David Holland
+Chzhy
+Rikitin
+Eric F. Tchong
+Jordi Domenech
+
+Programmed and 
+Designed by
+
+Deak Balint 2018

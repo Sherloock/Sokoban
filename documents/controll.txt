@@ -1,0 +1,12 @@
+Controll
+
+Move: WSAD or Arrow keys
+Undo: Space
+Restart: Home
+Show solution: End
+Next level: PageUp
+Prev. level: PageDown
+Change Skin: Q
+Speed++: R
+Speed--: E
+Back: Esc
