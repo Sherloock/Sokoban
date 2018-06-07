@@ -1,5 +1,6 @@
 package Sokoban;
 
+import Game.Highscore;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.FileInputStream;
@@ -12,25 +13,19 @@ public class TxtHandler {
 public static ArrayList<String> readToArrayList(String path) {
         ArrayList<String> list = new ArrayList<String>();
         try {
-            FileInputStream fstream = new FileInputStream(path);
-            BufferedReader br = new BufferedReader(new InputStreamReader(fstream));
+            BufferedReader br = new BufferedReader(new InputStreamReader( new FileInputStream(path)));
             String strLine;
             while ((strLine = br.readLine()) != null) {
                list.add(strLine);
             }
-            fstream.close();
             br.close();
-            
-            
         } catch (IOException e) {
             System.err.println("Error: " + e.getMessage());
         }
         return list;
     }
 
-
-
-public static ArrayList<String> readToArrayList(String path, String id) {
+public static ArrayList<String> readToArrayListById(String path, String id) {
         boolean found = false;
         ArrayList<String> list = new ArrayList<String>();
         try {
@@ -57,12 +52,14 @@ public static ArrayList<String> readToArrayList(String path, String id) {
         }
         return list;
     }
-    public static void write(String path, String text){
-        BufferedWriter outputFile;
+    public static void writeHs(){
         try {
-            outputFile = new BufferedWriter(new FileWriter(path));
-            outputFile.append(text);
-            outputFile.close();
+            BufferedWriter br = new BufferedWriter(new FileWriter("documents/highscores.txt"));
+            br.write("");
+            for (int i = 0; i < Main.highscores.size(); i++) {
+                br.append(Main.highscores.get(i).toString());
+            }
+            br.close();
             
         } catch (IOException e) {
             System.err.println("Error: " + e.getMessage());

@@ -9,11 +9,11 @@ public class Timer extends GameObject{
      private final int FONT_HEIGHT;
     //time in milliseconds
     private final long START;
-    private long elapsedSeconds;
+    private int elapsedSeconds;
     
-    private long hours;
-    private long mins;
-    private long secs;
+    private int hours;
+    private int mins;
+    private int secs;
     
     public Timer(int x, int y, ID id, int height) {
         super(x, y, id);
@@ -23,7 +23,7 @@ public class Timer extends GameObject{
 
     @Override
     public void tick() {
-        elapsedSeconds = (System.currentTimeMillis()-START)/1000;
+        elapsedSeconds = (int)(System.currentTimeMillis()-START)/1000;
         hours = elapsedSeconds/3600;
         mins = elapsedSeconds/60%60;
         secs = elapsedSeconds%60;
@@ -39,7 +39,7 @@ public class Timer extends GameObject{
        g.drawString(label, x , y);
     }
 
-    public long getElapsedSeconds() {
+    public int getElapsedSeconds() {
         return elapsedSeconds;
     }
 

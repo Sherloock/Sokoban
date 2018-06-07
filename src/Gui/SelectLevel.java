@@ -89,7 +89,7 @@ public class SelectLevel {
                     switch(z){
                         case 0: // New Game
                             final int level = Integer.valueOf(id.getText());
-                            if(level > 0 && level <= Main.LEVEL_COUNT){
+                            if(level >= 0 && level <= Main.LEVEL_COUNT){
                                 Main.game = new Game(level);
                                 Main.frame.replacePanel(panel,  Main.game );
                                 Main.game.start();

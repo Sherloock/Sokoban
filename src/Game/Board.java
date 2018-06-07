@@ -24,8 +24,8 @@ public class Board {
     private boolean checked[][];
 
     private void initBoard() {
-        String path = "levels/", filename = "original_levels";
-        ArrayList<String> tempBoard = Sokoban.TxtHandler.readToArrayList(path + filename + ".txt", String.valueOf(ID));
+        String path = "documents/", filename = "original_levels";
+        ArrayList<String> tempBoard = Sokoban.TxtHandler.readToArrayListById(path + filename + ".txt", String.valueOf(ID));
         
         System.out.println(tempBoard.size());
         for (int i = 0; i < tempBoard.size(); i++) {

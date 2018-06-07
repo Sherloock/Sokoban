@@ -8,7 +8,6 @@ import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.image.BufferStrategy;
 
-
 public class Game extends Canvas implements Runnable {
 
     private int id;
@@ -19,32 +18,24 @@ public class Game extends Canvas implements Runnable {
     private Board board;
 
     private Highscore highscore = null;
-    //counter gameObjects
-    private Counter moveCount;
-    private Counter pushCount;
+    private Counter moveCount, pushCount;
     private Timer timer;
     private Solution solution;
-    //player gameObject
     private Player player;
 
     //pixels
-    private int fieldSize;
-    private int startWidth;
-    private int startHeight;
-    private int panelWidth;
-    private int panelHeight;
+    private int fieldSize, startWidth, startHeight, panelWidth, panelHeight;
 
-    private boolean playerInTheRightPosition;
-    private boolean boxesInTheRightPosition;
+    private boolean playerInTheRightPosition, boxesInTheRightPosition;
 
     public Game(int id) {
         playerInTheRightPosition = boxesInTheRightPosition = false;
         this.id = id;
         this.fieldSize = 32;
-        this.highscore = new Highscore(id);
+        
         this.board = new Board(id);
         handler = new Handler();
-            this.addKeyListener(new KeyInput(handler));
+            
         setAppearance();
         createGameObjects();
         
@@ -54,8 +45,8 @@ public class Game extends Canvas implements Runnable {
         this.setFocusable(true);
         this.setFocusTraversalKeysEnabled(true);
 
+        this.addKeyListener(new KeyInput(handler));
         playerInTheRightPosition = boxesInTheRightPosition = true;
-        System.out.println(this.board.toString());
     }
 
     private void setAppearance() {
@@ -110,7 +101,10 @@ public class Game extends Canvas implements Runnable {
         // add timer
         timer = new Timer(0, counterY, ID.Counter, counterFontSize);
         handler.addObject(timer);
-
+        
+        //add highscore
+        highscore = Main.getHighscoreByID(id);
+        
         //add solution
         solution = new Solution(30, 30, ID.Counter, counterFontSize);
         handler.addObject(solution);
@@ -143,21 +137,21 @@ public class Game extends Canvas implements Runnable {
                 boxesInTheRightPosition = false;
             }
         }
-       // System.out.println(board.toString());
     }
 
     public void checkIfOver() {
         if (board.isOver()) {
-            Highscore probablyNewHs = new Highscore(id, moveCount.getCount(), pushCount.getCount(), timer.getElapsedSeconds(), solution.getSolution());
-            if (highscore == null || highscore.isBetter(probablyNewHs)) {
-                probablyNewHs.write();
+            Highscore probablyNewHs = new Highscore(id, "", moveCount.getCount(), pushCount.getCount(), timer.getElapsedSeconds(), solution.getSolution());
+            if (highscore == null || highscore.isBetter(probablyNewHs)){
+                Main.setNewHighscoreByID(id, probablyNewHs);
+                TxtHandler.writeHs();
             }
             this.nextlevel(this.id + 1);
         }
     }
 
     public void nextlevel(int id) {
-       // handler.clear();
+        // handler.clear();
         this.running = false;
 
         Main.frame.WINDOW.remove(Main.game);

@@ -5,6 +5,7 @@ import java.awt.Canvas;
 import java.awt.Dimension;
 import java.awt.GraphicsEnvironment;
 import java.awt.Rectangle;
+import java.awt.Toolkit;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
@@ -35,6 +36,7 @@ public class Window extends Canvas {
         WINDOW.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         WINDOW.setResizable(false);
         WINDOW.setLocationRelativeTo(null);
+        
         WINDOW.setVisible(true);
     }
 

@@ -10,15 +10,16 @@ public class Highscore {
     private static String folder = "highscores";
 
     private String fullPath;
-
-    private String name;
+    
     private int id;
+    private String name;
+   
     private int moveCount, pushCount;
-    private long time;
+    private int time;
     private String solution;
 
     //generate
-    public Highscore(int id, int moveCount, int pushCount, long time, String solution) {
+    public Highscore(int id, String name, int moveCount, int pushCount, int time, String solution) {
         fullPath = folder + "/" + id + ".txt";
         this.id = id;
         this.moveCount = moveCount;
@@ -45,7 +46,7 @@ public class Highscore {
             this.name = "";
             this.moveCount = Integer.MAX_VALUE;
             this.pushCount = Integer.MAX_VALUE;
-            this.time = Long.MAX_VALUE;
+            this.time = Integer.MAX_VALUE;
             this.solution = null;
         }
     }
@@ -83,10 +84,11 @@ public class Highscore {
 
     @Override
     public String toString() {
-        return name + "\n" + moveCount + "\n" + pushCount + "\n" + time + "\n" + solution;
+        return id+ "\n" + name + "\n" + moveCount + "\n" + pushCount + "\n" + time + "\n" + solution + "\n";
     }
 
-    public void write() {
-        Sokoban.TxtHandler.write(fullPath, this.toString());
+    public int getId() {
+        return id;
     }
+    
 }

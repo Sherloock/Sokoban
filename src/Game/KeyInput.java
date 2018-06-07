@@ -55,8 +55,10 @@ public class KeyInput extends KeyAdapter {
         
         //replay
         if(key == KeyEvent.VK_END){
-           Main.game.nextlevel(Main.game.getId());
-           Main.game.getHighscore().display();
+            if(Main.game.getHighscore() != null){
+                Main.game.nextlevel(Main.game.getId());
+                Main.game.getHighscore().display();
+            }
         }
         
         //move keyinput
@@ -68,19 +70,15 @@ public class KeyInput extends KeyAdapter {
             //moves
             if (key == KeyEvent.VK_W || key == KeyEvent.VK_UP) {
                 Main.game.move('u', false);
-                System.out.println("keyDown W");
             }
             if (key == KeyEvent.VK_S || key == KeyEvent.VK_DOWN) {
                 Main.game.move('d', false);
-                System.out.println("keyDown S");
             }
             if (key == KeyEvent.VK_A || key == KeyEvent.VK_LEFT) {
                 Main.game.move('l', false);
-                System.out.println("keyDown A");
             }
             if (key == KeyEvent.VK_D || key == KeyEvent.VK_RIGHT) {
                 Main.game.move('r', false);
-                System.out.println("keyDown D");
             }
             
         }   
